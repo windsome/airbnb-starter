@@ -1,5 +1,5 @@
 /*eslint-disable no-unused-vars */
-//import 'babel-core/polyfill'
+import 'babel-core/polyfill'
 
 import React from 'react'
 import { render } from 'react-dom'
@@ -12,10 +12,10 @@ const history = createBrowserHistory();
 //import { Router, browserHistory as history } from 'react-router';
 import { syncReduxAndRouter } from 'redux-simple-router'
 
-//import configureStore from './configureStore'
-//import routes from './routes';
-import configureStore from './stub/configureStore'
-import routes from './stub/routes';
+import configureStore from './configureStore'
+import routes from './routes';
+//import configureStore from './stub/configureStore'
+//import routes from './stub/routes';
 
 // Grab the state from a global injected into server-generated HTML
 const initialState = window.__INITIAL_STATE__;
@@ -30,7 +30,7 @@ render(
     <Router history={history} routes={routes} />
   </Provider>,
 
-  document.getElementById('root')
+  document.getElementById("root")
 )
 
 
