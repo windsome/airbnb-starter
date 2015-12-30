@@ -8,6 +8,7 @@ styles.footer1 = {
 	width:'100%',
 	boxSizing:'border-box',
     textAlign:'center',
+    overflow:'hidden',
 	background:'#efe'
 };
 styles.menu = {
@@ -36,6 +37,8 @@ export default class Header extends Component {
             <li style={styles.menuitem}><Link to="/house">house</Link></li>
             <li style={styles.menuitem}><Link to="/admin">admin</Link></li>
             <li style={styles.menuitem}><Link to="/root">root</Link></li>
+            <li style={styles.menuitem}><Link to="/nomatch">nomatch</Link></li>
+            <li style={styles.menuitem}><Link to="/house/nomatch">/house/nomatch</Link></li>
           </ul>
 
         </div>

@@ -1,11 +1,7 @@
 import auth from './common/auth.js'
 import NoMatch from './common/NoMatch'
 
-export default {
-  //component:'div',
-  //path: '/',
-  //indexRoute: { component: NoMatch },
-  childRoutes: [
+export default [
     require('./house'),
     require('./admin'),
     require('./root'),
@@ -19,8 +15,4 @@ export default {
     { path: '*',
       component: require('./common/NoMatch')
     }
-  ],
-  /*onEnter: (nextState, replaceState) => {
-    replaceState (null, '/house')
-  },*/
-}
+  ]
