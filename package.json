@@ -4,6 +4,9 @@
   "description": "Redux TodoMVC example",
   "scripts": {
     "start": "node server.js",
+    "clean": "rimraf dist",
+    "build:webpack": "NODE_ENV=production webpack --progress --colors --config ./webpack.config.js",
+    "build": "npm run clean && npm run build:webpack",
     "test": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register --require ./test/setup.js",
     "test:watch": "npm test -- --watch"
   },
@@ -44,6 +47,19 @@
     "todomvc-app-css": "^2.0.1",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.2.0"
+    "webpack-hot-middleware": "^2.2.0",
+    "react-helmet": "2.1.1",
+    "isomorphic-fetch": "^2.2.0",
+    "rimraf": "^2.4.4",
+    "autoprefixer-loader": "^3.1.0",
+    "extract-text-webpack-plugin": "^0.8.1",
+    "css-loader": "^0.23.0",
+    "file-loader": "^0.8.4",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "json-loader": "^0.5.3",
+    "url-loader": "^0.5.6"
+
   }
 }

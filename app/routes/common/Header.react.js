@@ -32,7 +32,8 @@ export default class Header extends Component {
   render() {
     return (
         <div style={styles.footer1} >
-          <span> Header content</span>
+          <span> Header content </span>
+          <img src={require("../../images/chrome-ninja192-precomposed.png")} />
           <ul style={styles.menu}>
             <li style={styles.menuitem}><Link to="/house">house</Link></li>
             <li style={styles.menuitem}><Link to="/admin">admin</Link></li>
