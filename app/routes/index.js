@@ -8,8 +8,9 @@ export default [
     {
       path: '/',
       onEnter: (nextState, replaceState) => {
-        console.log("redirect to /house");
-        replaceState (null, '/admin')
+        let next='/admin';
+        console.log("need redirect to "+next);
+        replaceState (null, next)
       }
     },
     { path: '*',

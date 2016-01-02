@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "description": "Redux TodoMVC example",
   "scripts": {
-    "start": "node server.js",
     "clean": "rimraf dist",
-    "build:webpack": "NODE_ENV=production webpack --progress --colors --config ./webpack.config.js",
+    "start": "NODE_ENV=production node ./webpack/server.prod.js",
+    "dev": "NODE_ENV=development node ./webpack/server.dev.js",
+    "build:webpack": "NODE_ENV=production webpack --progress --colors --config ./webpack/webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "test": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register --require ./test/setup.js",
     "test:watch": "npm test -- --watch"
@@ -19,6 +20,9 @@
     "url": "https://github.com/rackt/redux/issues"
   },
   "homepage": "http://rackt.github.io/redux",
+  "engines": {
+    "node": "5.x"
+  },
   "dependencies": {
     "classnames": "^2.1.2",
     "react": "^0.14.0",
@@ -59,7 +63,10 @@
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "json-loader": "^0.5.3",
-    "url-loader": "^0.5.6"
-
+    "url-loader": "^0.5.6",
+    "babel-eslint": "^3.1.14",
+    "eslint": "^0.22.1",
+    "eslint-loader": "^0.12.0",
+    "eslint-plugin-react": "^2.7.1"
   }
 }

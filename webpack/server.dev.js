@@ -1,25 +1,21 @@
 var webpack = require('webpack')
-var config = require('./webpack.config')
+var config = require('./webpack.config.dev')
+var path = require('path')
 
 var app = new (require('express'))()
 var port = 3000
 var compiler = webpack(config)
 
-//var isDev = false;
-var isDev = true;
-if (isDev) {
-  app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    publicPath: config[0].output.publicPath
-  }));
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
 
-  app.use(require('webpack-hot-middleware')(compiler));
-}
-
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(function(req, res) {
   console.info("req:"+req.url);
-  res.sendFile(__dirname + '/app/index.html')
+  res.sendFile(path.join(__dirname, "..", "app/index.html"))
 })
 
 app.listen(port, function(error) {

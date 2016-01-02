@@ -1,4 +1,5 @@
 import React from 'react';
+//import qs from 'qs';
 import { renderToString } from 'react-dom/server';
 import { RoutingContext, match } from 'react-router'
 import createLocation from 'history/lib/createLocation';
@@ -8,6 +9,7 @@ import routes from './routes';
 import configureStore from 'configureStore';
 import headconfig from './head/Head';
 
+/*
 const clientConfig = {
   host: process.env.HOSTNAME || 'localhost',
   port: process.env.PORT || '3000'
@@ -21,7 +23,7 @@ function fetchTopics(callback, api='topic') {
     .then(res => res.json())
     .then(json => callback(json));
 };
-
+*/
 
 /*
  * Our html template file
@@ -32,10 +34,9 @@ function fetchTopics(callback, api='topic') {
 function renderFullPage(renderedContent, initialState, head={
   title: 'React Webpack Node',
   meta: '<meta name="viewport" content="width=device-width, initial-scale=1" />',
-  link: '<link rel="stylesheet" href="/dist/styles/main.css"/>'
+  link: '<link rel="stylesheet" href="/assets/styles/main.css"/>'
 }) {
-  return `
-  <!doctype html>
+  return `<!doctype html>
     <html lang="">
 
     <head>
@@ -51,12 +52,10 @@ function renderFullPage(renderedContent, initialState, head={
     <script>
       window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
     </script>
-    <script type="text/javascript" charset="utf-8" src="/dist/bundle.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/assets/bundle.js"></script>
 
     </body>
-    </html>
-
-  `;  
+    </html>`;  
 }
 
 /* 
@@ -65,16 +64,39 @@ function renderFullPage(renderedContent, initialState, head={
  * and pass it into the Router.run function.
  */
 export default function render(req, res) {
+  console.log('URL='+req.url+', QUERY='+req.query.toString());
+  var url = req.baseUrl+req.url;
 
   // Note that req.url here should be the full URL path from
   // the original request, including the query string.
-  match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+  match({ routes, location: url }, (error, redirectLocation, renderProps) => {
     if (error) {
+      console.log ('error='+error.message);
       res.status(500).send(error.message);
     } else if (redirectLocation) {
+      console.log ('redirectLocation='+redirectLocation);
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
-      fetchTopics(apiResult => {
+      console.log('renderProps='+renderProps+',redirectLocation='+redirectLocation);
+
+      //const params = qs.parse(req.query)
+      //const counter = parseInt(params.counter) || 0
+      //let initialState = {counter}
+      let initialState = {}
+      const store = configureStore({});
+      const renderedContent = renderToString(
+        <Provider store={store}>
+          <RoutingContext {...renderProps} />
+        </Provider>
+      );
+      const renderedPage = renderFullPage(renderedContent, initialState, {
+        title: headconfig.title,
+        meta: headconfig.meta,
+        link: headconfig.link
+      });
+      res.status(200).send(renderedPage);
+
+      /*fetchTopics(apiResult => {
         const authenticated = req.isAuthenticated();
         const store = configureStore({
           // reducer: {initialState}
@@ -97,8 +119,9 @@ export default function render(req, res) {
           link: headconfig.link
         });
         res.status(200).send(renderedPage);
-      });
+      });*/
     } else {
+      console.log ('Not Found');
       res.status(404).send('Not Found');
     }
     
