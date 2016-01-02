@@ -13,7 +13,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.use(function(req, res) {
+app.use("/", function(req, res) {
   console.info("req:"+req.url);
   res.sendFile(path.join(__dirname, "..", "app/index.html"))
 })

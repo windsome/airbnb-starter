@@ -16,10 +16,12 @@ var commonLoaders = [
       include: path.join(__dirname, "..",  "app")
     },
     {
-      test: /.*\.(png|gif|svg|jpg)$/i,
+      test: /.*\.(png|gif|svg|jpg)$/,
       loader: 'file',
       include: path.join(__dirname, "..",  "app")
     },
+    { test: /\.(woff|woff2)$/, loader:'url'},
+    { test: /\.(ttf|eot)$/, loader:'file'},
     {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]!autoprefixer-loader!sass?includePaths[]=' + encodeURIComponent(path.resolve(__dirname, '..', 'app', 'scss')))
@@ -37,7 +39,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '..', 'dist', 'assets'),
     filename: 'bundle.js',
-    publicPath: 'assets/'
+    publicPath: '/assets/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
