@@ -4,3 +4,12 @@
   box-shadow: 0 1px 2px $color-black;
 }
 
+@mixin clearfix() {
+  &:before, &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

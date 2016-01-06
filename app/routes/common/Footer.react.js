@@ -1,20 +1,24 @@
 import React, { PropTypes, Component } from 'react'
-import classnames from 'classnames'
+import { Link } from 'react-router'
+import classNames from 'classnames/bind';
+import styles from '../../scss/components/_footer';
 
-var styles = {};
-styles.footer1 = {
-	width:'100%',
-	boxSizing:'border-box',
-    textAlign:'center',
-	background:'#eee'
-};
+const cx = classNames.bind(styles);
 
 export default class Footer extends Component {
 
   render() {
     return (
-        <div style={styles.footer1} >
-          <span> FOOT CONTENT </span>
+        <div className={cx('footer')} >
+          <span> Footer content </span>
+          <ul className={cx('menu')}>
+            <li className={cx('menuitem')}><Link className={cx('link')} to="/house">house</Link></li>
+            <li  className={cx('menuitem')}><Link className={cx('link')} to="/admin">admin</Link></li>
+            <li  className={cx('menuitem')}><Link className={cx('link')} to="/root">root</Link></li>
+            <li  className={cx('menuitem')}><Link className={cx('link')} to="/nomatch">nomatch</Link></li>
+            <li  className={cx('menuitem')}><Link className={cx('link')} to="/house/nomatch">/house/nomatch</Link></li>
+          </ul>
+
         </div>
     );
   }

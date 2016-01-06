@@ -1,0 +1,25 @@
+@import '../mixins';
+
+.footer {
+  padding: 0 24px;
+  background-color: rgba(0,0,0,.15);
+}
+  .menu {
+    list-style: outside none none;
+    @include clearfix();
+  }
+    .menuitem {
+      float: left;
+      padding: 20px;
+      word-wrap: break-word;
+    }
+  .link {
+    color: $color-black;
+    font-size: $font-large;
+    text-align: center;
+    &:hover {
+      color:$color-punch;
+    }
+  }
+
+

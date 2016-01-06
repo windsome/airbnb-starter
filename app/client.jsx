@@ -17,6 +17,8 @@ import routes from './routes';
 //import configureStore from './stub/configureStore'
 //import routes from './stub/routes';
 
+import './scss/main';
+
 // Grab the state from a global injected into server-generated HTML
 const initialState = window.__INITIAL_STATE__;
 
