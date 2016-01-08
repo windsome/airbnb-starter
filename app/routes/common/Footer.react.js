@@ -2,25 +2,34 @@ import React, { PropTypes, Component } from 'react'
 import { Link } from 'react-router'
 import classNames from 'classnames/bind';
 import styles from '../../scss/components/_footer';
-
+import LanguageSelect from './widgets/LanguageSelect';
+import CurrencySelect from './widgets/CurrencySelect';
 const cx = classNames.bind(styles);
 
 export default class Footer extends Component {
-
+  constructor(props) {
+    super (props);
+    this.state = {language:'en'};
+  }
+  _changeLanguage(val) {
+    this.setState({language: val});
+  }
   render() {
     return (
-        <div className={cx('footer', 'clearfix')} >
-          <span className={cx('pull-left')}> Footer content </span>
-          <Link className={cx('pull-left', 'link')} to="/house"><i className={cx('logo', 'glyphicon', 'glyphicon-oil')}/></Link>
-          <ul className={cx('menu', 'pull-left')}>
-            <li className={cx('menuitem')}><Link className={cx('link')} to="/house">house</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/admin">admin</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/root">root</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/nomatch">nomatch</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/house/nomatch">/house/nomatch</Link></li>
-          </ul>
-
+      <div className="row-condensed">
+        <div className="col-md-3 col-md-offset-1">
+          <div className="language-curr-picker clearfix space-2">
+            <div className={cx('language-container')}>
+              <label id="language-selector-label" className="screen-reader-only">Choose language</label>
+              <LanguageSelect className={cx('language-selector')} aria-labelledby="language-selector-label" value={this.state.language} changeLanguage={this._changeLanguage.bind(this)}/>
+            </div>
+            <div className={cx('currency-container')}>
+              <label id="currency-selector-label" className="screen-reader-only">选择货币</label>
+              <CurrencySelect className={cx('currency-selector')} aria-labelledby="currency-selector-label"/>
+            </div>
+          </div>
         </div>
+      </div>
     );
   }
 
@@ -36,148 +45,12 @@ export default class Footer extends Component {
     <div class="col-md-3 col-md-offset-1">
       <div class="language-curr-picker clearfix space-2">
         <div class="select select-large select-block row-space-2">
-  <label id="language-selector-label" class="screen-reader-only">
-    选择语言
-  </label>
-  <select class="language-selector" aria-labelledby="language-selector-label">
-    
-      <option value="id">Bahasa Indonesia</option>
-    
-      <option value="ms">Bahasa Melayu</option>
-    
-      <option value="ca">Català</option>
-    
-      <option value="da">Dansk</option>
-    
-      <option value="de">Deutsch</option>
-    
-      <option value="en">English</option>
-    
-      <option value="es">Español</option>
-    
-      <option value="el">Eλληνικά</option>
-    
-      <option value="fr">Français</option>
-    
-      <option value="it">Italiano</option>
-    
-      <option value="hu">Magyar</option>
-    
-      <option value="nl">Nederlands</option>
-    
-      <option value="no">Norsk</option>
-    
-      <option value="pl">Polski</option>
-    
-      <option value="pt">Português</option>
-    
-      <option value="fi">Suomi</option>
-    
-      <option value="sv">Svenska</option>
-    
-      <option value="tr">Türkçe</option>
-    
-      <option value="is">Íslenska</option>
-    
-      <option value="cs">Čeština</option>
-    
-      <option value="ru">Русский</option>
-    
-      <option value="th">ภาษาไทย</option>
-    
-      <option value="zh" selected="">中文 (简体)</option>
-    
-      <option value="zh-TW">中文 (繁體)</option>
-    
-      <option value="ja">日本語</option>
-    
-      <option value="ko">한국어</option>
-    
-  </select>
 </div>
 
           
 <div class="select select-large select-block row-space-2">
   <label id="currency-selector-label" class="screen-reader-only">选择货币</label>
   <select class="currency-selector" aria-labelledby="currency-selector-label">
-    
-      <option value="AED">AED</option>
-    
-      <option value="ARS">ARS</option>
-    
-      <option value="AUD">AUD</option>
-    
-      <option value="BGN">BGN</option>
-    
-      <option value="BRL">BRL</option>
-    
-      <option value="CAD">CAD</option>
-    
-      <option value="CHF">CHF</option>
-    
-      <option value="CNY" selected="">CNY</option>
-    
-      <option value="CRC">CRC</option>
-    
-      <option value="CZK">CZK</option>
-    
-      <option value="DKK">DKK</option>
-    
-      <option value="EUR">EUR</option>
-    
-      <option value="GBP">GBP</option>
-    
-      <option value="HKD">HKD</option>
-    
-      <option value="HRK">HRK</option>
-    
-      <option value="HUF">HUF</option>
-    
-      <option value="IDR">IDR</option>
-    
-      <option value="ILS">ILS</option>
-    
-      <option value="INR">INR</option>
-    
-      <option value="JPY">JPY</option>
-    
-      <option value="KRW">KRW</option>
-    
-      <option value="MAD">MAD</option>
-    
-      <option value="MXN">MXN</option>
-    
-      <option value="MYR">MYR</option>
-    
-      <option value="NOK">NOK</option>
-    
-      <option value="NZD">NZD</option>
-    
-      <option value="PEN">PEN</option>
-    
-      <option value="PHP">PHP</option>
-    
-      <option value="PLN">PLN</option>
-    
-      <option value="RON">RON</option>
-    
-      <option value="RUB">RUB</option>
-    
-      <option value="SEK">SEK</option>
-    
-      <option value="SGD">SGD</option>
-    
-      <option value="THB">THB</option>
-    
-      <option value="TRY">TRY</option>
-    
-      <option value="TWD">TWD</option>
-    
-      <option value="UAH">UAH</option>
-    
-      <option value="USD">USD</option>
-    
-      <option value="VND">VND</option>
     
       <option value="ZAR">ZAR</option>
     

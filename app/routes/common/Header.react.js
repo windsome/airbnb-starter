@@ -21,7 +21,7 @@ export default class Header extends Component {
             <div>
               <i className={cx('glyphicon', 'glyphicon-search', 'search-icon')}/>
               <label className="screen-reader-only"> Where are you going?</label>
-              <input id="header-search-form" name="location" className={cx('location')} autocomplete="off" placeholder="Where are you going?"/>
+              <input id="header-search-form" name="location" className={cx('location')} autoComplete="off" placeholder="Where are you going?"/>
             </div>
             </form>
           </div>

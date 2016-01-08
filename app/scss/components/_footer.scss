@@ -4,6 +4,18 @@
 .footer {
   padding: 0 24px;
   background-color: rgba(0,0,0,.15);
+  .language-container, .currency-container {
+    font-size: 16px;
+    width: 100%;
+    position: relative;
+    vertical-align: bottom;
+    margin-bottom: 12px;
+  }
+  .language-selector, .currency-selector {
+    width:100%;
+    border-radius: 2px;
+    padding: 8px 10px 9px 10px;
+  }
   .menu {
     list-style: outside none none;
     @include clearfix();
