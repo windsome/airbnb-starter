@@ -11,13 +11,14 @@ const history = createBrowserHistory();
 // react-router 1.0.3 not support browserHistory, latest master brunch support. use createBrowserHistory instead temply.
 //import { Router, browserHistory as history } from 'react-router';
 import { syncReduxAndRouter } from 'redux-simple-router'
+//import './scss/main';
+import './scss/bootstrap/bootstrap-base';
 
 import configureStore from './configureStore'
 import routes from './routes';
 //import configureStore from './stub/configureStore'
 //import routes from './stub/routes';
 
-import './scss/main';
 
 // Grab the state from a global injected into server-generated HTML
 const initialState = window.__INITIAL_STATE__;

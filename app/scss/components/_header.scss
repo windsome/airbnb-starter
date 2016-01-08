@@ -1,0 +1,63 @@
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+.header {
+  padding: 0px;
+  height: 61px;
+  line-height:61px;
+  border-bottom:1px solid #dce0e0;
+  /*background-color: rgba(0,0,0,.15);*/
+  .comp {
+    border-left: 1px solid #dce0e0;
+    position: relative;
+    height: 100%;
+    padding: 0px 19px;
+  }
+  .link-btn {
+    display: block;
+  }
+  .link-btn:hover {
+    color:$link-hover-color;
+  }
+  .logo {
+    font-size: 61px;
+    color:$brand-danger;
+  }
+  .location {
+    width: 357px;
+    height: auto;
+    line-height: 21px;
+    padding: 19px 0px 19px 48px;
+    border: medium none;
+    outline: none;
+    transition: border-color 0.2s ease 0s;
+  }
+  .search-icon {
+    position: absolute;
+    top: 19px;
+    left: 16px;
+    color: $gray-lighter;
+    font-size: 21px;
+  }
+
+  .menu {
+    list-style: outside none none;
+    @include clearfix();
+  }
+    .menuitem {
+      float: left;
+      padding: 0px;
+      border-left: 1px solid #dce0e0;
+      word-wrap: break-word;
+    }
+  .link {
+    color: $gray;
+    font-size: $font-size-h4;
+    text-align: center;
+    &:hover {
+      color:$link-hover-color;
+    }
+  }
+
+}
+

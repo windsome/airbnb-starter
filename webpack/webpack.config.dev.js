@@ -24,7 +24,7 @@ var commonLoaders = [
     { test: /\.(ttf|eot)$/, loader:'file'},
     {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]__[hash:base64:5]!autoprefixer-loader!resolve-url!sass?sourceMap&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, '..', 'app', 'scss')))
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module&localIdentName=[local]!autoprefixer-loader!resolve-url!sass?sourceMap&includePaths[]=' + encodeURIComponent(path.resolve(__dirname, '..', 'app', 'scss')))
     }
 ];
 

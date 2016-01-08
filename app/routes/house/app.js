@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import '../../scss/main';
-
 import Header from '../common/Header.react';
 import Footer from '../common/Footer.react';
 

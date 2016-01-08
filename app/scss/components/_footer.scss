@@ -1,9 +1,9 @@
-@import '../mixins';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
 
 .footer {
   padding: 0 24px;
   background-color: rgba(0,0,0,.15);
-}
   .menu {
     list-style: outside none none;
     @include clearfix();
@@ -13,13 +13,19 @@
       padding: 20px;
       word-wrap: break-word;
     }
+  }
   .link {
-    color: $color-black;
-    font-size: $font-large;
+    color: $gray;
+    font-size: $font-size-h4;
     text-align: center;
     &:hover {
-      color:$color-punch;
+      color:$link-hover-color;
     }
+  .logo {
+    font-size:61px;
+    color:$brand-danger;
+    line-height:61px;
   }
 
+}
 

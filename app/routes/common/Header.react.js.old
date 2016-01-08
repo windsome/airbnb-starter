@@ -1,23 +1,45 @@
 import React, { PropTypes, Component } from 'react'
 import { Link } from 'react-router'
-import classNames from 'classnames/bind';
-import styles from '../../scss/components/_footer';
 
-const cx = classNames.bind(styles);
+import classnames from 'classnames'
 
-export default class Footer extends Component {
+var styles = {};
+styles.footer1 = {
+	width:'100%',
+	boxSizing:'border-box',
+    textAlign:'center',
+    overflow:'hidden',
+	background:'#efe'
+};
+styles.menu = {
+	float:'left',
+	listStyle:'outside none none',
+    margin:'0px',
+    padding:'0px',
+	boxSizing:'border-box',
+	wordWrap:'break-word'
+};
+styles.menuitem = {
+	float:'left',
+    padding:'20px',
+	boxSizing:'border-box',
+	wordWrap:'break-word'
+};
+
+
+export default class Header extends Component {
 
   render() {
     return (
-        <div className={cx('footer', 'clearfix')} >
-          <span className={cx('pull-left')}> Footer content </span>
-          <Link className={cx('pull-left', 'link')} to="/house"><i className={cx('logo', 'glyphicon', 'glyphicon-oil')}/></Link>
-          <ul className={cx('menu', 'pull-left')}>
-            <li className={cx('menuitem')}><Link className={cx('link')} to="/house">house</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/admin">admin</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/root">root</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/nomatch">nomatch</Link></li>
-            <li  className={cx('menuitem')}><Link className={cx('link')} to="/house/nomatch">/house/nomatch</Link></li>
+        <div style={styles.footer1} >
+          <span> Header content </span>
+          <Link to="/house"><i className="glyphicon glyphicon-oil"/></Link>
+          <ul style={styles.menu}>
+            <li style={styles.menuitem}><Link to="/house">house</Link></li>
+            <li style={styles.menuitem}><Link to="/admin">admin</Link></li>
+            <li style={styles.menuitem}><Link to="/root">root</Link></li>
+            <li style={styles.menuitem}><Link to="/nomatch">nomatch</Link></li>
+            <li style={styles.menuitem}><Link to="/house/nomatch">/house/nomatch</Link></li>
           </ul>
 
         </div>
