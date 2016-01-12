@@ -9,27 +9,73 @@ const cx = classNames.bind(styles);
 export default class Footer extends Component {
   constructor(props) {
     super (props);
-    this.state = {language:'en'};
+    //this.state = {language:'en'};
   }
   _changeLanguage(val) {
-    this.setState({language: val});
+    //this.setState({language: val});
   }
   render() {
     return (
-      <div className="row-condensed">
+    <footer className="page-container-responsive clearfix">
+      <div className={cx('row', 'row-condensed', 'footer')}>
         <div className="col-md-3 col-md-offset-1">
           <div className="language-curr-picker clearfix space-2">
             <div className={cx('language-container')}>
               <label id="language-selector-label" className="screen-reader-only">Choose language</label>
-              <LanguageSelect className={cx('language-selector')} aria-labelledby="language-selector-label" value={this.state.language} changeLanguage={this._changeLanguage.bind(this)}/>
+              {/*<LanguageSelect className={cx('language-selector')} aria-labelledby="language-selector-label" value={this.state.language} changeLanguage={this._changeLanguage.bind(this)}/>*/}
             </div>
             <div className={cx('currency-container')}>
               <label id="currency-selector-label" className="screen-reader-only">选择货币</label>
-              <CurrencySelect className={cx('currency-selector')} aria-labelledby="currency-selector-label"/>
+              {/*<CurrencySelect className={cx('currency-selector')} aria-labelledby="currency-selector-label"/>*/}
             </div>
           </div>
         </div>
+        <div className="col-md-2 col-md-offset-1">
+          <h2 className="h5">Company</h2>
+          <ul className="list-layout">
+            <li><Link className="link-contrast" to="/house">About</Link></li>
+            <li><Link className="link-contrast" to="/house/search">Careers</Link></li>
+            <li><Link className="link-contrast" to="/house/info">Press</Link></li>
+            <li><Link className="link-contrast" to="/blog">Blog</Link></li>
+            <li><Link className="link-contrast" to="/help">Help</Link></li>
+            <li><Link className="link-contrast" to="/help">Policies</Link></li>
+            <li><Link className="link-contrast" to="/help">Disaster Response</Link></li>
+            <li><Link className="link-contrast" to="/help">Terms & Privacy</Link></li>
+          </ul>
+        </div>
+        <div className="col-md-2">
+          <h2 className="h5">Discover</h2>
+          <ul className="list-layout">
+            <li><Link className="link-contrast" to="/root">Trust & Safety</Link></li>
+            <li><Link className="link-contrast" to="/careers">Invite Friends</Link></li>
+            <li><Link className="link-contrast" to="/press">Gift Cards</Link></li>
+            <li><Link className="link-contrast" to="/blog">Airbnb Picks</Link></li>
+            <li><Link className="link-contrast" to="/help">Mobile</Link></li>
+            <li><Link className="link-contrast" to="/help">Support NYC</Link></li>
+            <li><Link className="link-contrast" to="/help">Bussiness Travel</Link></li>
+            <li><Link className="link-contrast" to="/help">Site Map</Link></li>
+          </ul>
+        </div>
+        <div className="col-md-2">
+          <h2 className="h5">Hosting</h2>
+          <ul className="list-layout">
+            <li><Link className="link-contrast" to="/admin">Why Host</Link></li>
+            <li><Link className="link-contrast" to="/careers">Hospitality</Link></li>
+            <li><Link className="link-contrast" to="/press">Responsible Hosting</Link></li>
+            <li><Link className="link-contrast" to="/blog">Home Safety</Link></li>
+          </ul>
+        </div>
       </div>
+      <hr className="footer-devider space-top-8 space-4"/>
+      <div className="text-center">
+        <h2 className="h5 space-4">Join Us On</h2>
+        <ul className="list-layout list-inline">
+          <li><Link to="http://www.facebook.com"><i className="glyphicon glyphicon-hdd"/></Link></li>
+          <li><Link to="http://www.facebook.com"><i className="glyphicon glyphicon-hdd"/></Link></li>
+        </ul>
+        <div className="space-top-2 text-muted">© 中国新农场 Inc.</div>
+      </div>
+    </footer>
     );
   }
 

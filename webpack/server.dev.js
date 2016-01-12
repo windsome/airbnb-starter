@@ -1,10 +1,21 @@
 var webpack = require('webpack')
 var config = require('./webpack.config.dev')
 var path = require('path')
+var apis = require('../bpi')
 
 var app = new (require('express'))()
 var port = 3000
 var compiler = webpack(config)
+
+var bodyParser = require('body-parser');
+app.use(bodyParser());
+
+//app.set('view engine', 'ejs');
+app.use('/apis/cors', apis.getCorsResource);
+app.post('/apis/cors', apis.getCorsResource);
+/*app.get('/apis/cors',function(req,res,next){
+    res.jsonp({status:'json'});  
+});*/  
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,

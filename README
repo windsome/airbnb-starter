@@ -1,0 +1,54 @@
+1, directory structure.
+/home/dev/frontend/react-redux-router-scss-node/
+▾ app/
+  ▸ actions/
+  ▸ constants/
+  ▸ head/
+  ▸ images/
+  ▾ reducers/
+      baidu.js
+      index.js
+      todos.js
+  ▾ routes/
+    ▸ admin/
+    ▸ common/
+    ▸ house/
+    ▸ root/
+      index.js
+  ▾ scss/
+    ▸ bootstrap/
+    ▸ components/
+    ▸ font/
+    ▸ images/
+      common.scss
+      main.scss
+      mixins.scss
+      settings.scss
+  ▸ stub/
+  ▸ test/
+  ▸ utils/
+    client.jsx
+    configureStore.js
+    index.html
+    server.jsx
+▾ bpi/
+    index.js
+▸ dist/
+▸ node_modules/
+▾ webpack/
+    server.dev.js
+    server.js.es6
+    server.prod.js
+    webpack.config.dev.js
+    webpack.config.prod.js
+  package.json
+  server.js.bak
+/home/dev/frontend/react-redux-router-scss-node/
+
+2, webpack contains webpack.config.js and server.js.
+
+3, app contains all browser side code.
+
+4, bpi contains all server side code.
+
+5, dist is app compiled files.

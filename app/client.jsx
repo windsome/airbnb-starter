@@ -13,6 +13,7 @@ const history = createBrowserHistory();
 import { syncReduxAndRouter } from 'redux-simple-router'
 //import './scss/main';
 import './scss/bootstrap/bootstrap-base';
+import './scss/common';
 
 import configureStore from './configureStore'
 import routes from './routes';

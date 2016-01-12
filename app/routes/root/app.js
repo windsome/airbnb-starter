@@ -17,9 +17,7 @@ export default class App extends Component {
           {this.props.children}
         </main>
         <div id="footer" className="container-brand-dark footer-container">
-          <footer className="page-container-responsive">
-            <Footer/>
-          </footer>
+          <Footer/>
         </div>
       </div>
     );

@@ -13,18 +13,23 @@
   }
   .language-selector, .currency-selector {
     width:100%;
+    border: 0px none;
     border-radius: 2px;
-    padding: 8px 10px 9px 10px;
+    color: #fff;
+    background-color: #565a5c;
+    padding: 8px 0px 9px 10px;
+    margin: 0px;
+    line-height:normal;
+    text-transform: none;
   }
   .menu {
     list-style: outside none none;
     @include clearfix();
   }
-    .menuitem {
-      float: left;
-      padding: 20px;
-      word-wrap: break-word;
-    }
+  .menuitem {
+    float: left;
+    padding: 20px;
+    word-wrap: break-word;
   }
   .link {
     color: $gray;
@@ -33,6 +38,7 @@
     &:hover {
       color:$link-hover-color;
     }
+  }
   .logo {
     font-size:61px;
     color:$brand-danger;

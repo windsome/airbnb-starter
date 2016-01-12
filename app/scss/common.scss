@@ -1,0 +1,59 @@
+@import './bootstrap/variables';
+@import './bootstrap/mixins';
+
+.footer-container {
+}
+
+.footer-surround {
+}
+
+.container-brand-dark {
+  padding: 50px 0px;
+  background-image: url('./images/background.png');
+  background-color: #2b2d2e;
+  color:#fff;
+}
+
+.list-layout {
+  padding-left:0px;
+  margin-bottom:0px;
+  list-style: outside none none;
+}
+
+.page-container, .page-container-responsive {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12.5px;
+  padding-right:12.5px;
+  @include clearfix;
+}
+
+@media (min-width: $screen-sm-min) {
+  .page-container, .page-container-responsive {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.page-container {
+  width: 1045px;
+}
+.page-container-responsive {
+  width: auto;
+}
+
+@media (min-width: $screen-sm-min) {
+  .page-container-responsive {
+    width: 745px;
+  }
+}
+@media (min-width: $screen-lg-min) {
+  .page-container-responsive {
+    width: 1045px;
+  }
+}
+.row-condensed {
+  margin-left:-6.25px;
+  margin-right:-6.25px;
+}
+

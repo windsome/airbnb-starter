@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
 import { routeReducer as routing } from 'redux-simple-router';
-import todos from './todos'
+import { postsByReddit, selectReddit } from './baidu'
 
 const rootReducer = combineReducers({
   routing,
-  todos
+  postsByReddit,
+  selectReddit
 })
 
 export default rootReducer

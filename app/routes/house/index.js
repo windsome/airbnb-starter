@@ -1,9 +1,11 @@
 import auth from '../common/auth.js'
+//import Default1 from './default'
 
 export default {
   path:'house',
-  component: require('./app'),
-  indexRoute: require('./default'),
+  component: require('./App'),
+//  indexRoute: Default1,
+  indexRoute: require('./Main'),
   /*indexRoute: {
     getComponent: (location, cb) => {
       // Only load if we're logged in
@@ -29,7 +31,7 @@ export default {
     { path: 'info',
       getComponent: (location, cb) => {
         require.ensure([], (require) => {
-          cb(null, require('./default'))
+          cb(null, require('./Main'))
         })
       }
     },
