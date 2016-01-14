@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-//import { connect } from 'react-redux';
-//import { bindActionCreators } from 'redux';
 import Header from '../common/Header.react';
 import Footer from '../common/Footer.react';
 
+import { connect } from 'react-redux';
+//import { bindActionCreators } from 'redux';
+
 export default class App extends Component {
+//class App extends Component {
   render() {
     return (
       <div>

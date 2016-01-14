@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 //import * as BaiduActionCreators from '../../actions/baidu';
 import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../../actions/baidu';
+import SimpleCarousel from '../common/SimpleCarousel.react';
 
 class Main extends Component {
   componentDidMount() {
@@ -20,36 +21,56 @@ class Main extends Component {
     console.log("componentWillReceiveProps:exit");
   }
 
+  prevItem() {
+  }
+  nextItem() {
+  }
+
   render() {
     console.log("render:enter");
     const { selectedReddit, posts, isFetching, lastUpdated } = this.props;
-    console.log("render:exit");
+    //const { selectedReddit, items, isFetching, lastUpdated } = this.props;
+    console.log ("posts:"+JSON.stringify(posts));
+    var rand = parseInt(Math.random() * posts.length);
+    console.log("render:exit rand="+rand);
+    var imgurl = posts[rand];
+    //var imgurl = "http://tupian.qqjay.com/u/2013/1127/19_222949_14.jpg";
+
     return (
-      <div>
+      <div className="container">
         <span>just empty for house</span>
+        <div className="row">
+          <div className="col-sm-6 col-md-4"><SimpleCarousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><SimpleCarousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><SimpleCarousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><SimpleCarousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><SimpleCarousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><SimpleCarousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><SimpleCarousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+        </div>
       </div>
     ); 
   }
 }
 
 function mapStateToProps(state) {
-  const { selectReddit, postsByReddit } = state
+  const { selectedReddit, postsByReddit } = state
   const {
     isFetching,
     lastUpdated,
     items: posts
-  } = postsByReddit[selectReddit] || {
+  } = postsByReddit[selectedReddit] || {
     isFetching: true,
     items: []
   }
   return {
-    selectReddit,
+    selectedReddit,
     posts,
     isFetching,
     lastUpdated
   }
 }
 
-//export default connect(mapStateToProps)(Main)
-export default connect()(Main);
+export default connect(mapStateToProps)(Main)
+//export default connect()(Main);
 

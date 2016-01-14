@@ -1,0 +1,34 @@
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+.house-item {
+    position:absolute;
+    width:100%;
+    max-width:100%;
+    height:100%;
+    .fit-image-wrap-inner {
+        height:100%;
+    	text-align:center;
+        .fit-image-origin {
+            max-height:100%;
+        	max-width:100%;
+        }
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+	.carousel-wind-main .carousel-wind-control {
+		display:none;
+		transition:opacity 0.1s ease-in-out
+	}
+	.carousel-wind-main:hover .carousel-wind-control {
+		display:block;
+		background-color:rgba(0,0,0,0.05);
+		/*opacity:0.8*/
+	}
+	.carousel-wind-main:hover .carousel-wind-control:hover {
+		background-color:rgba(0,0,0,0.2);
+		/*opacity:1.0*/
+	}
+}
+

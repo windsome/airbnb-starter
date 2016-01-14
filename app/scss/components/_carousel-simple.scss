@@ -1,0 +1,67 @@
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+.fit-image-wrap-outter {
+    position:absolute;
+    width:100%;
+    max-width:100%;
+    height:100%;
+    .fit-image-wrap-inner {
+        height:100%;
+    	text-align:center;
+        .fit-image-origin {
+            max-height:100%;
+        	max-width:100%;
+        }
+    }
+}
+
+.carousel-wind-main {
+	position:relative;
+	max-width:100%;
+    padding-bottom:67%;
+    .carousel-wind-control {
+    	position:absolute;
+    	height:100%;
+    	cursor:pointer;
+    	width:25%
+    }
+    @include clearfix();
+}
+
+@media (min-width: $screen-sm-min) {
+	.carousel-wind-main .carousel-wind-control {
+		display:none;
+		transition:opacity 0.1s ease-in-out
+	}
+	.carousel-wind-main:hover .carousel-wind-control {
+		display:block;
+		background-color:rgba(0,0,0,0.05);
+		/*opacity:0.8*/
+	}
+	.carousel-wind-main:hover .carousel-wind-control:hover {
+		background-color:rgba(0,0,0,0.2);
+		/*opacity:1.0*/
+	}
+}
+
+.carousel-wind-control .icon {
+	position:absolute;
+	top:50%;
+	margin-top:-22px
+}
+.carousel-wind-control.prev {
+	left:0;
+    .icon {
+        left:10px;
+    }
+}
+
+.carousel-wind-control.next {
+	right:0px;
+	left:auto;
+    .icon {
+        right:10px;
+    }
+}
+

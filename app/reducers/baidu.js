@@ -1,7 +1,7 @@
 import { SELECT_REDDIT, INVALIDATE_REDDIT, REQUEST_POSTS, RECEIVE_POSTS } from '../actions/baidu'
 
-export function selectReddit(state = 'woman', action) {
-  console.log ("reducer selectReddit");
+export function selectedReddit(state = 'woman', action) {
+  console.log ("reducer selectedReddit");
   switch (action.type) {
     case SELECT_REDDIT:
       return action.reddit
