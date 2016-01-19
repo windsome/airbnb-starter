@@ -1,6 +1,27 @@
 @import '../bootstrap/variables';
 @import '../bootstrap/mixins';
 
+.carousel-wind-main {
+	position:relative;
+	max-width:100%;
+    padding-bottom:67%;
+    .carousel-wind-control {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      height:100%;
+      width:25%;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+      background-color: rgba(0, 0, 0, 0);
+      filter: alpha(opacity=50);
+      opacity: .5;
+    }
+    @include clearfix();
+}
 .fit-image-wrap-outter {
     position:absolute;
     width:100%;
@@ -15,18 +36,24 @@
         }
     }
 }
-
-.carousel-wind-main {
-	position:relative;
-	max-width:100%;
-    padding-bottom:67%;
-    .carousel-wind-control {
-    	position:absolute;
-    	height:100%;
-    	cursor:pointer;
-    	width:25%
+.carousel-wind-control > .glyphicon {
+	position:absolute;
+	top:50%;
+	margin-top:-22px
+}
+.carousel-wind-control.prev {
+	left:0;
+    .glyphicon {
+        left:10px;
     }
-    @include clearfix();
+}
+
+.carousel-wind-control.next {
+	right:0;
+	left:auto;
+    .glyphicon {
+        right:10px;
+    }
 }
 
 @media (min-width: $screen-sm-min) {
@@ -45,23 +72,4 @@
 	}
 }
 
-.carousel-wind-control .icon {
-	position:absolute;
-	top:50%;
-	margin-top:-22px
-}
-.carousel-wind-control.prev {
-	left:0;
-    .icon {
-        left:10px;
-    }
-}
-
-.carousel-wind-control.next {
-	right:0px;
-	left:auto;
-    .icon {
-        right:10px;
-    }
-}
 

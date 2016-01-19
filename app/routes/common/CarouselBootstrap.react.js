@@ -12,23 +12,25 @@ import classNames from 'classnames/bind';
 import styles from '../../scss/components/_carousel-simple';
 const cx = classNames.bind(styles);
 
-export default class SimpleCarousel extends Component {
+export default class CarouselBootstrap extends Component {
 
   render() {
     return (
-      <div className="carousel-wind-main" {...this.props}>
+    <div>
+      <div className="carousel carousel-wind-main">
         <div className={cx('fit-image-wrap-outter')}>
           <div className={cx('fit-image-wrap-inner')}>
             <img src={this.props.imgurl} className={cx('fit-image-origin')} />
           </div>
         </div>
-        <div className="carousel-wind-control prev" onClick={this.props.prevItem} >
-          <i className="glyphicon glyphicon-chevron-left icon-size-2 icon-white" />
+        <div className="carousel-control left" onClick={this.props.prevItem} >
+          <i className="glyphicon glyphicon-chevron-left" />
         </div>
-        <div className="carousel-wind-control next" onClick={this.props.nextItem} >
-          <i className="glyphicon glyphicon-chevron-right icon-size-2 icon-white" />
+        <div className="carousel-control right" onClick={this.props.nextItem} >
+          <i className="glyphicon glyphicon-chevron-right" />
         </div>
       </div>
+    </div>
     );
   }
 

@@ -1,0 +1,34 @@
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+.air-slideshow {
+    overflow:hidden;
+    position:relative;
+    width:100%;
+    height:100%;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    .air-slide {
+        position:absolute;
+        display:none;
+        left:0px;
+        right:0px;
+        top:0px;
+        bottom:0px;
+    }
+    .air-slide--active {
+        display:block;
+    }
+}
+
+.air-slide img {
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    height:auto;
+    vertical-align:middle;
+    border:0px none;
+}
+
