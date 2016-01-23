@@ -422,14 +422,3 @@ td,
 th {
   padding: 0;
 }
-
-.screen-reader-only {
-  border: 0px none;
-  clip: rect(0px, 0px, 0px, 0px);
-  width:1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-}
