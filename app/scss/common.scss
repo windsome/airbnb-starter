@@ -102,15 +102,118 @@
 /******************************
  * new simple style widgets.
  ******************************/
+[type="text"],[type="password"],[type="search"],[type="email"],[type="url"],[type="number"],[type="tel"],textarea,select,input[type="radio"],input[type="checkbox"],.input-prefix,.input-suffix {
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #565a5c
+}
+
+[type="text"],[type="password"],[type="search"],[type="email"],[type="url"],[type="number"],[type="tel"],textarea,select,input[type="radio"],input[type="checkbox"] {
+    -webkit-transition: border-color .2s;
+    transition: border-color .2s
+}
+
+.focus[type="text"],.focus[type="password"],.focus[type="search"],.focus[type="email"],.focus[type="url"],.focus[type="number"],.focus[type="tel"],textarea.focus,select.focus,input.focus[type="radio"],input.focus[type="checkbox"],[type="text"]:focus,[type="password"]:focus,[type="search"]:focus,[type="email"]:focus,[type="url"]:focus,[type="number"]:focus,[type="tel"]:focus,textarea:focus,select:focus,input[type="radio"]:focus,input[type="checkbox"]:focus {
+    border-color: #aaa
+}
+
+.invalid[type="text"],.invalid[type="password"],.invalid[type="search"],.invalid[type="email"],.invalid[type="url"],.invalid[type="number"],.invalid[type="tel"],textarea.invalid,select.invalid,input.invalid[type="radio"],input.invalid[type="checkbox"],[type="text"]:invalid,[type="password"]:invalid,[type="search"]:invalid,[type="email"]:invalid,[type="url"]:invalid,[type="number"]:invalid,[type="tel"]:invalid,textarea:invalid,select:invalid,input[type="radio"]:invalid,input[type="checkbox"]:invalid {
+    border-color: #ffb400;
+    background-color: #fff8e6
+}
+
+.valid[type="text"],.valid[type="password"],.valid[type="search"],.valid[type="email"],.valid[type="url"],.valid[type="number"],.valid[type="tel"],textarea.valid,select.valid,input.valid[type="radio"],input.valid[type="checkbox"] {
+    border-color: #3fb34f
+}
+
+.disabled[type="text"],.disabled[type="password"],.disabled[type="search"],.disabled[type="email"],.disabled[type="url"],.disabled[type="number"],.disabled[type="tel"],textarea.disabled,select.disabled,input.disabled[type="radio"],input.disabled[type="checkbox"],[disabled][type="text"],[disabled][type="password"],[disabled][type="search"],[disabled][type="email"],[disabled][type="url"],[disabled][type="number"],[disabled][type="tel"],textarea[disabled],select[disabled],input[disabled][type="radio"],input[disabled][type="checkbox"],fieldset[disabled] [type="text"],fieldset[disabled] [type="password"],fieldset[disabled] [type="search"],fieldset[disabled] [type="email"],fieldset[disabled] [type="url"],fieldset[disabled] [type="number"],fieldset[disabled] [type="tel"],fieldset[disabled] textarea,fieldset[disabled] select,fieldset[disabled] input[type="radio"],fieldset[disabled] input[type="checkbox"] {
+    background-color: #edefed;
+    color: #cacccd;
+    cursor: default
+}
+
+[disabled][type="text"],[disabled][type="password"],[disabled][type="search"],[disabled][type="email"],[disabled][type="url"],[disabled][type="number"],[disabled][type="tel"],textarea[disabled],select[disabled],input[disabled][type="radio"],input[disabled][type="checkbox"],fieldset[disabled] [type="text"],fieldset[disabled] [type="password"],fieldset[disabled] [type="search"],fieldset[disabled] [type="email"],fieldset[disabled] [type="url"],fieldset[disabled] [type="number"],fieldset[disabled] [type="tel"],fieldset[disabled] textarea,fieldset[disabled] select,fieldset[disabled] input[type="radio"],fieldset[disabled] input[type="checkbox"] {
+    pointer-events: none
+}
+
+[type="text"],[type="password"],[type="search"],[type="email"],[type="url"],[type="number"],[type="tel"],textarea,select,.input-prefix,.input-suffix {
+    display: block;
+    padding: 8px 10px;
+    width: 100%
+}
+
+
 
 .screen-reader-only {
-    border: 0px none;
-    clip: rect(0px, 0px, 0px, 0px);
-    width:1px;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
     height: 1px;
     margin: -1px;
     overflow: hidden;
-    padding: 0px;
+    padding: 0;
     position: absolute;
+    width: 1px
 }
+
+.input-placeholder-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 11px;
+    padding-left: 11px;
+    padding-right: 11px;
+    font-size: 16px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: text;
+    color: #82888a
+}
+
+.input-placeholder-group {
+    position: relative;
+    display: inline-block
+}
+
+
+.input-placeholder-group {
+    position: relative;
+    display: inline-block
+}
+
+.searchbar__location,.searchbar__checkin,.searchbar__checkout,.searchbar__dates--new,.searchbar__guests,.searchbar__submit {
+    float: left;
+    margin: 0 -1px 0 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    vertical-align: middle;
+    width: auto
+}
+
+.searchbar__location {
+    width: 220px
+}
+
+.searchbar__location input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.searchbar__location-error {
+    background: #fff;
+    background: rgba(255,255,255,0.8);
+    border-radius: 0 0 3px 3px;
+    left: 0;
+    margin-top: -1px;
+    position: absolute;
+    top: 100%;
+    width: 220px
+}
+
+.searchbar input:focus {
+    position: relative;
+    z-index: 3
+}
+
 

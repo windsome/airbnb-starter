@@ -7,6 +7,7 @@ import { setHeroSlideIndex } from '../../actions/houseMain';
 import styles from '../../scss/components/_house-main';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
+import Input from '../common/widgets/Input';
 import Carousel from '../common/SimpleCarousel.react';
 import SlideShow from '../common/SlideShow.react';
 
@@ -75,13 +76,16 @@ class Main extends Component {
           </div>
           <div className={cx("hero__content", "text-center", "clearfix")}>
             <div className="va-container va-container-v va-container-h">
-              <div className="va-middle">
+              <div className="va-middle col-sm-12">
                 <h1 className="text-jumbo text-uppercase"> Welcome Home </h1>
                 <h4> Rent unique places to stay from local hosts in 100 countries</h4>
               </div>
             </div>
-            <div className={cx("hero__content-footer")}>
-              <div id="searchbar">
+            <div className={cx("hero__content-footer", "va-container", "va-container-h")}>
+              <div id="searchbar" className="searchbar" className={cx("va-middle", "col-sm-12")}>
+                <Input id="location" name="location" type="text" placeholder="Where do you want to go?" className="menu-autocomplete-input form-inline location input-large input-contrast" labelClass="searchbar__location" />
+                <Input id="checkin" name="checkin" type="text" placeholder="check in time" className="menu-autocomplete-input form-inline location input-large input-contrast" labelClass="searchbar__location" />
+                <Input id="checkout" name="checkout" type="text" placeholder="check in time" className="menu-autocomplete-input form-inline location input-large input-contrast" labelClass="searchbar__location" />
               </div>
             </div>
           </div>

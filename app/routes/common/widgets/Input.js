@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import classNames from 'classnames';
+import _ from 'underscore';
 
 export default class Input extends Component {
   supportPlaceholder() {
@@ -9,8 +10,9 @@ export default class Input extends Component {
   renderPlaceholderText() {
     var gotValue = this.props.value || this.props.initialValue || this.props.defaultValue;
     var needsPlaceholding = this.props.placeholder && !this.supportPlaceholder() && !gotValue;
+    console.log ("gotValue="+gotValue+", needsPlaceholding="+needsPlaceholding);
     return (
-      <span className={className("input-placeholder-label", "screen-reader-only":needsPlaceholding)}>
+      <span className={classNames("input-placeholder-label", {"screen-reader-only":needsPlaceholding})}>
         {this.props.placeholder}
       </span>
     );
@@ -19,12 +21,13 @@ export default class Input extends Component {
   render() {
     var labelClass = classNames("input-placeholder-group", this.props.labelClass);
     var isTextarea = this.props.type === 'textarea';
-    var props = Object.assign({}, this.props);
+    var props = _.omit(this.props, 'labelClass');
+    //var props = Object.assign({}, this.props);
     //delete props[labelClass];
 
     return (
       <label className={labelClass}>
-        {renderPlaceholderText()}
+        {this.renderPlaceholderText()}
         {isTextarea &&
           <textarea ref="input" {...props}/>}
         {!isTextarea && 
@@ -39,12 +42,6 @@ Input.propTypes = {
     className: PropTypes.string,
     labelClass: PropTypes.string,
     id: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    onKeyUp: PropTypes.func,
-    onCompositionStart: PropTypes.func,
     placeholder: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.any
