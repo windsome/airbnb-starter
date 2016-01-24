@@ -1,3 +1,7 @@
+# What's This?
+This is a (React + Redux + Router + isomorphic + SASS/SCSS + webpack + nodejs + express) starter kit.
+It saves you life in construct a base runnable suit. I need your help to improve it.
+
 # how to use
 firt install as:
 ```
