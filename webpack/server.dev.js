@@ -1,3 +1,4 @@
+//require('babel-core/register')
 var webpack = require('webpack')
 var config = require('./webpack.config.dev')
 var path = require('path')
@@ -12,7 +13,8 @@ app.use(bodyParser());
 
 //app.set('view engine', 'ejs');
 app.use('/apis/cors', apis.getCorsResource);
-app.post('/apis/cors', apis.getCorsResource);
+//app.post('/apis/cors', apis.getCorsResource);
+app.use('/apis', apis.getApis);
 /*app.get('/apis/cors',function(req,res,next){
     res.jsonp({status:'json'});  
 });*/  
