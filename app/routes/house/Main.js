@@ -8,7 +8,7 @@ import styles from '../../scss/components/_house-main';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 import Input from '../common/widgets/Input';
-import Carousel from '../common/SimpleCarousel.react';
+import ListingPanel from './ListingPanel';
 import SlideShow from '../common/SlideShow.react';
 
 class Main extends Component {
@@ -86,18 +86,33 @@ class Main extends Component {
                 <Input id="location" name="location" type="text" placeholder="Where do you want to go?" className="menu-autocomplete-input form-inline location input-large input-contrast" labelClass="searchbar__location" />
                 <Input id="checkin" name="checkin" type="text" placeholder="check in time" className="menu-autocomplete-input form-inline location input-large input-contrast" labelClass="searchbar__location" />
                 <Input id="checkout" name="checkout" type="text" placeholder="check in time" className="menu-autocomplete-input form-inline location input-large input-contrast" labelClass="searchbar__location" />
+                <button className="btn btn-primary" type="button">
+                  Book House
+                </button>
               </div>
             </div>
           </div>
         </div>
+
         <div className="row">
-          <div className="col-sm-6 col-md-4"><Carousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><Carousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><Carousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><Carousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><Carousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><Carousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><Carousel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-8 col-sm-offset-2">
+            <SlideShow current={heroSlideIndex} imgs={posts}/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-8 col-sm-offset-2">
+            <img src="http://pic3.zhongsou.com/image/380f1c36f4a226fadf0.jpg" className="img-responsive center-block" alt="Responsive image"/>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
+          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
         </div>
       </div>
     ); 

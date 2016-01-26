@@ -12,7 +12,7 @@ export default class Input extends Component {
     var needsPlaceholding = this.props.placeholder && !this.supportPlaceholder() && !gotValue;
     console.log ("gotValue="+gotValue+", needsPlaceholding="+needsPlaceholding);
     return (
-      <span className={classNames("input-placeholder-label", {"screen-reader-only":needsPlaceholding})}>
+      <span className={classNames("input-placeholder-label", {"screen-reader-only":!needsPlaceholding})}>
         {this.props.placeholder}
       </span>
     );
@@ -21,7 +21,9 @@ export default class Input extends Component {
   render() {
     var labelClass = classNames("input-placeholder-group", this.props.labelClass);
     var isTextarea = this.props.type === 'textarea';
-    var props = _.omit(this.props, 'labelClass');
+    var inputClass = ' form-control';
+    //var inputClass = this.props.className + ' form-control';
+    var props = _.omit(this.props, 'labelClass', 'className');
     //var props = Object.assign({}, this.props);
     //delete props[labelClass];
 
@@ -29,9 +31,9 @@ export default class Input extends Component {
       <label className={labelClass}>
         {this.renderPlaceholderText()}
         {isTextarea &&
-          <textarea ref="input" {...props}/>}
+          <textarea ref="input" {...props} className={inputClass}/>}
         {!isTextarea && 
-          <input ref="input" {...props} />}
+          <input ref="input" {...props} className={inputClass}/>}
       </label>
     );
   }
