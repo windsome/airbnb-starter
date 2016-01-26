@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "NODE_ENV=production node ./webpack/server.prod.js",
-    "dev": "NODE_ENV=development node ./webpack/server.dev.js",
+    "dev": "set NODE_ENV=development&&node ./webpack/server.dev.js",
     "devdbg": "NODE_ENV=development node --debug ./webpack/server.dev.js",
     "build:webpack": "NODE_ENV=production webpack --progress --colors --config ./webpack/webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",

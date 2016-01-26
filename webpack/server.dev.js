@@ -1,3 +1,5 @@
+require('babel-core/register')
+
 var webpack = require('webpack')
 var config = require('./webpack.config.dev')
 var path = require('path')
@@ -8,7 +10,10 @@ var port = 3000
 var compiler = webpack(config)
 
 var bodyParser = require('body-parser');
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 //app.set('view engine', 'ejs');
 app.use('/apis/cors', apis.getCorsResource);
