@@ -290,3 +290,12 @@
 		/*opacity:1.0*/
 	}
 }
+
+.text-truncate {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.panel-card-section {
+    padding:10px;
+}

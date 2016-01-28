@@ -11,7 +11,7 @@ export default class SimpleCarousel extends Component {
   render() {
     return (
         <div className="responsive-img-outer">
-          <ResponsiveImage imgurl={this.props.imgurl} />
+          <ResponsiveImage imgUrl={this.props.imgUrl} />
           <div className="carousel-windctrl prev" onClick={this.props.prevItem} >
             <i className="glyphicon glyphicon-chevron-left icon-size-2 icon-white" />
           </div>

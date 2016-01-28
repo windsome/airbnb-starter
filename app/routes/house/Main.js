@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 //import * as BaiduActionCreators from '../../actions/baidu';
 import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../../actions/baidu';
-import { setHeroSlideIndex } from '../../actions/houseMain';
+import * as houseActions from '../../actions/houseMain';
 import styles from '../../scss/components/_house-main';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
@@ -23,7 +23,7 @@ class Main extends Component {
   }
   changeSlide() {
     const { dispatch, heroSlideIndex } = this.props
-    dispatch(setHeroSlideIndex(heroSlideIndex+1));
+    dispatch(houseActions.setHeroSlideIndex(heroSlideIndex+1));
     //this.setState ({current: this.state.current+1})
   }
   changeReddit() {
@@ -37,11 +37,12 @@ class Main extends Component {
   }
   componentDidMount() {
     console.log("componentDidMount:enter");
-    //this.setInterval(this.tick, this.props.interval);
-    this.setInterval(this.changeSlide.bind(this), 2000);
+    ////this.setInterval(this.tick, this.props.interval);
+    this.setInterval(this.changeSlide.bind(this), 6000);
     const { dispatch, selectedReddit } = this.props
     dispatch (fetchPostsIfNeeded(selectedReddit))
-    this.setInterval(this.changeReddit.bind(this), 20000);
+    dispatch (houseActions.loadFaverateHouses())
+    //this.setInterval(this.changeReddit.bind(this), 30000);
     console.log("componentDidMount:exit");
   }
   componentWillReceiveProps(nextProps) {
@@ -53,20 +54,30 @@ class Main extends Component {
     console.log("componentWillReceiveProps:exit");
   }
 
-  prevItem() {
+  prevItem(houseId) {
+    const { dispatch } = this.props
+    dispatch (houseActions.faverateHouseImagePrev(houseId))
   }
-  nextItem() {
+  nextItem(houseId) {
+    const { dispatch } = this.props
+    dispatch (houseActions.faverateHouseImageNext(houseId))
   }
 
   render() {
     console.log("render:enter");
-    const { selectedReddit, posts, isFetching, lastUpdated, heroSlideIndex } = this.props;
+    const { selectedReddit, posts, isFetching, lastUpdated, heroSlideIndex, faverateHouses, houseImageIndex } = this.props;
     //const { selectedReddit, items, isFetching, lastUpdated } = this.props;
-    console.log ("posts:"+JSON.stringify(posts));
+    //console.log ("posts:"+JSON.stringify(posts));
     var rand = parseInt(Math.random() * posts.length);
     console.log("render:exit rand="+rand);
     var imgurl = posts[rand];
     //var imgurl = "http://tupian.qqjay.com/u/2013/1127/19_222949_14.jpg";
+    //console.log ("houses:"+JSON.parse(JSON.stringify(faverateHouses)))
+    console.log (faverateHouses)
+    var favers = faverateHouses.map(house => {
+      var imgIndex = (houseImageIndex[house.id] && houseImageIndex[house.id].index) || 0
+      return (<div className="col-sm-6 col-md-4"><ListingPanel imgUrl={house.imgs[imgIndex]} name={house.name} description={house.description} prevItem={this.prevItem.bind(this, house.id)} nextItem={this.nextItem.bind(this, house.id)} /></div>)
+      });
 
     return (
       <div className="container">
@@ -94,7 +105,7 @@ class Main extends Component {
           </div>
         </div>
 
-        <div className="row">
+        {/*<div className="row">
           <div className="col-sm-8 col-sm-offset-2">
             <SlideShow current={heroSlideIndex} imgs={posts}/>
           </div>
@@ -103,24 +114,16 @@ class Main extends Component {
           <div className="col-sm-8 col-sm-offset-2">
             <img src="http://pic3.zhongsou.com/image/380f1c36f4a226fadf0.jpg" className="img-responsive center-block" alt="Responsive image"/>
           </div>
-        </div>
+        </div>*/}
 
-        <div className="row">
-          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-          <div className="col-sm-6 col-md-4"><ListingPanel imgurl={imgurl} prevItem={this.prevItem} nextItem={this.nextItem} /></div>
-        </div>
+        <div className="row">{favers}</div>
       </div>
     ); 
   }
 }
 
 function mapStateToProps(state) {
-  const { selectedReddit, postsByReddit, heroSlideIndex } = state
+  const { selectedReddit, postsByReddit, heroSlideIndex, entities : { users, houses }, mainpage: { faverate, houseImageIndex } } = state
   const {
     isFetching,
     lastUpdated,
@@ -129,15 +132,19 @@ function mapStateToProps(state) {
     isFetching: true,
     items: []
   }
+
+  const faverateHouses = faverate.ids.map (id => houses[id])
+
   return {
     selectedReddit,
     posts,
     isFetching,
     lastUpdated,
-    heroSlideIndex
+    heroSlideIndex,
+    faverateHouses,
+    houseImageIndex
   }
 }
 
 export default connect(mapStateToProps)(Main)
-//export default connect()(Main);
 

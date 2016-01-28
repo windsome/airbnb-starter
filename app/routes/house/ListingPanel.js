@@ -9,14 +9,14 @@ import classNames from 'classnames';
 export default class ListingPanel extends Component {
 
   render() {
-    const { imgurl, name, price, unit, lat, lng, user, prevPic, nextPic } = this.props;
+    const { imgUrl, name, description, price, unit, user, avatar, prevItem, nextItem } = this.props;
 
     return (
       <div className="carousel-wind-main">
-        <SimpleCarousel imgurl={imgurl} prevItem={prevPic} nextItem={nextPic} />
-        <div className="text-left">
-          <h3>{name}</h3>
-          <p>{imgurl}</p>
+        <SimpleCarousel imgClass="responsive-imgh" imgUrl={imgUrl} prevItem={prevItem} nextItem={nextItem} />
+        <div className="text-left panel-card-section">
+          <h3 className="h3 text-truncate">{name}</h3>
+          <p className="h5 text-truncate">{description}</p>
         </div>
       </div>
     );

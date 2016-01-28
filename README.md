@@ -89,4 +89,8 @@ registry = https://registry.npm.taobao.org
 搜索镜像: https://npm.taobao.org
 建立或使用镜像,参考: https://github.com/cnpm/cnpmjs.org
 
+# 问题二：如何使用 node-inspector进行nodejs的调试
 
+# 问题三：react组件属性有时总不出现，看看是不是属性名大小写出了问题？
+
+# 

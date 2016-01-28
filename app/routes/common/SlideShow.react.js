@@ -22,7 +22,7 @@ export default class SlideShow extends Component {
         var show = (current%imgs.length) == i;
         return (
         <li key={i} className={cx('air-slide', {'air-slide--active': show})}>
-          <img src={img}/>
+          <img className="responsive-imgh" src={img}/>
         </li>)
       })}
       </ul>

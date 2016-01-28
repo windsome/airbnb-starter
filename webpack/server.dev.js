@@ -5,6 +5,7 @@ var config = require('./webpack.config.dev')
 var path = require('path')
 var apis = require('../bpi')
 var proxy = require('../bpi/proxy')
+var tmpapi = require('../bpi/tempapi')
 
 var app = new (require('express'))()
 var port = 3000
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({
 //app.set('view engine', 'ejs');
 app.use('/apis/cors', apis.getCorsResource);
 //app.post('/apis/cors', apis.getCorsResource);
+app.use('/apis/house', tmpapi.getApiResult);
 app.use('/apis', proxy.onProxy);
 /*app.get('/apis/cors',function(req,res,next){
     res.jsonp({status:'json'});  
